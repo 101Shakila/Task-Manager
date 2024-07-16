@@ -26,5 +26,29 @@ function addUpTask(e) {
         status: status
     }
 
+    //Here we will push the stored object into the array
+    tasksCollection.push(plusTask);
+
+}
+
+
+
+function showResults() {
+
+    const list = document.getElementById('taskList');
+    list.innerHTML = ''; //whenever we render the data we want to reset it to the data doesn't overlap ( go on top of each other)
+
+    tasksCollection.forEach(task => {
+        li.setAttribute('date-id', task.id);
+        li.innerHTML = `
+        <strong>Description:</strong> ${task.description}<br>
+        <strong>Assigned:</strong> ${task.assignedTo}<br>
+        <strong>Due Date:</strong> ${task.dueDate}<br>
+        <strong>Priority:</strong> ${task.priority}<br>
+        <strong>Status:</strong> ${task.status}<br>`;
+        list.appendChild(li); //the newly created li element will be added as a child to the list element
+    })
+
+
 
 }

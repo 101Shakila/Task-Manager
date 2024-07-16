@@ -68,3 +68,16 @@ function deleteTask(id) {
     tasksCollection = tasksCollection.filter(tasksCollection => tasksCollection.id !== id);
     showResults();
 }
+
+function editTask(id) {
+    //we will grab the task based on ID and place it back to the input section to have the user edit it.
+    //When we click on edit we will delete the ID as when they edit it will be placed based on a new unique ID
+    const task = tasksCollection.find(task => task.id === id);
+    document.getElementById('description').value = task.description;
+    document.getElementById('assignedTo').value = task.assignedTo;
+    document.getElementById('dueDate').value = task.dueDate;
+    document.getElementById('priority').value = task.priority;
+    document.getElementById('status').value = task.status;
+
+    deleteTask(id);
+}

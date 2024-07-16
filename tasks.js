@@ -55,8 +55,8 @@ function showResults() {
         <strong>Due Date:</strong> ${task.dueDate}<br>
         <strong>Priority:</strong> ${task.priority}<br>
         <strong>Status:</strong> ${task.status}<br>
-        <button onclick="editTask('${plusTask.id}')">Edit</button>
-        <button onclick="deleteTask('${plusTask.id}')">Delete</button>`;
+        <button onclick="editTask(${task.id})">Edit</button>
+            <button onclick="deleteTask(${task.id})">Delete</button>`;
         list.appendChild(li); //the newly created li element will be added as a child to the list element
     });
 }

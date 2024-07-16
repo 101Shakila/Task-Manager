@@ -28,6 +28,7 @@ function addUpTask(e) {
 
     //Here we will push the stored object into the array
     tasksCollection.push(plusTask);
+    localStorageSave(tasksCollection);
     showResults();
     //after you show the results you want to remove the input given by the user so its easier to input another task ( also not accidently input the same task)
     clearInput();
@@ -66,6 +67,7 @@ function deleteTask(id) {
     //filter method will create a new array with all the elements passed into
     //We will remove any object that returns false and only show the results of the ones that's true.
     tasksCollection = tasksCollection.filter(tasksCollection => tasksCollection.id !== id);
+    localStorageSave(tasksCollection);
     showResults();
 }
 
@@ -80,4 +82,16 @@ function editTask(id) {
     document.getElementById('status').value = task.status;
 
     deleteTask(id);
+}
+
+
+//This is the main function to saves inputted tasks into localStorage
+function localStorageSave(tasksCollection) {
+    localStorage.setItem('tasksCollection', JSON.stringify(tasksCollection));
+}
+
+//Function to retrieve the tasks from the locationStorage
+function localStorageGet() {
+    const taskStored = localStorage.getItem('tasksCollection');
+    return taskStored ? JSON.parse(taskStored) : []; //if there is a task stored we will parse it and return it as an array
 }

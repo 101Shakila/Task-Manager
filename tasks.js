@@ -40,30 +40,30 @@ function clearInput() {
 }
 
 //rendering array!
-function showResults() {
+function showResults(inputSearch = '') {
 
     const list = document.getElementById('taskList');
     list.innerHTML = ''; //whenever we render the data we want to reset it to the data doesn't overlap ( go on top of each other)
 
 
     let filterTask = tasksCollection;
-    if (searchText.trim() !== '') {
+    if (inputSearch.trim() !== '') {
         //we have to make sure the search doesn't go wrong DUE TO CASING
-        const lowCaseSearch = searchText.toLowerCase();
+        const lowCaseSearch = inputSearch.toLowerCase();
         filterTask = tasksCollection.filter(task => {
             return (
-                task.description.toLowerCase().includes(lowerCaseSearchText) ||
-                task.assignedTo.toLowerCase().includes(lowerCaseSearchText) ||
-                task.dueDate.includes(searchText) || //dueDate is a string in format YYYY-MM-DD
-                task.priority.toLowerCase().includes(lowerCaseSearchText) ||
-                task.status.toLowerCase().includes(lowerCaseSearchText)
+                task.description.toLowerCase().includes(lowCaseSearch) ||
+                task.assignedTo.toLowerCase().includes(lowCaseSearch) ||
+                task.dueDate.includes(inputSearch) || //dueDate is a string in format YYYY-MM-DD
+                task.priority.toLowerCase().includes(lowCaseSearch) ||
+                task.status.toLowerCase().includes(lowCaseSearch)
             );
 
         });
     }
 
     //We will run through the array and display the tasks stored inside it
-    tasksCollection.forEach(task => {
+    filterTask.forEach(task => {
         //createElement basically in this scenario ~ create a new Element
         const li = document.createElement('li');
         li.setAttribute('date-id', task.id);
@@ -113,12 +113,26 @@ function localStorageGet() {
     return taskStored ? JSON.parse(taskStored) : []; //if there is a task stored we will parse it and return it as an array
 }
 
+//This function will handle the search input changes made by user
+function handleInput(event) {
+    const inputSearch = event.target.value.trim();
+    showResults(inputSearch); //this will render the tasks based on what the user has inputted
+}
+
+
+
+
+
 //We need a function to initialize the application
 function init() {
 
     //Here we will retrieve tasks from localStoarge once the page is loaded
     tasksCollection = localStorageGet();
     showResults();
+
+    //event listener for the search input done by the user
+    const search = document.getElementById('searchInput');
+    search.addEventListener('input', handleInput);
 
 }
 

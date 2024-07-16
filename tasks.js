@@ -60,3 +60,11 @@ function showResults() {
         list.appendChild(li); //the newly created li element will be added as a child to the list element
     });
 }
+
+function deleteTask(id) {
+    //we are going to delete tasks based on unique ID
+    //filter method will create a new array with all the elements passed into
+    //We will remove any object that returns false and only show the results of the ones that's true.
+    tasksCollection = tasksCollection.filter(tasksCollection => tasksCollection.id !== id);
+    showResults();
+}

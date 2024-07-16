@@ -17,4 +17,14 @@ function addUpTask(e) {
 
     //we will store the data into a object - this way we can store key value pairs
     //We want to store mulitple objects into a array so we can use methods such as push, forEach etc..
+    const plusTask = {
+        id: Date.now(), //we will use this as we need unique IDs and will be easy for us to EDIT/DELETE
+        description: taskDescription,
+        assignedTo: assignedTo,
+        dueDate: dueDate,
+        priority: priority,
+        status: status
+    }
+
+
 }

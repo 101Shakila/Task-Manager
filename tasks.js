@@ -45,6 +45,23 @@ function showResults() {
     const list = document.getElementById('taskList');
     list.innerHTML = ''; //whenever we render the data we want to reset it to the data doesn't overlap ( go on top of each other)
 
+
+    let filterTask = tasksCollection;
+    if (searchText.trim() !== '') {
+        //we have to make sure the search doesn't go wrong DUE TO CASING
+        const lowCaseSearch = searchText.toLowerCase();
+        filterTask = tasksCollection.filter(task => {
+            return (
+                task.description.toLowerCase().includes(lowerCaseSearchText) ||
+                task.assignedTo.toLowerCase().includes(lowerCaseSearchText) ||
+                task.dueDate.includes(searchText) || //dueDate is a string in format YYYY-MM-DD
+                task.priority.toLowerCase().includes(lowerCaseSearchText) ||
+                task.status.toLowerCase().includes(lowerCaseSearchText)
+            );
+
+        });
+    }
+
     //We will run through the array and display the tasks stored inside it
     tasksCollection.forEach(task => {
         //createElement basically in this scenario ~ create a new Element

@@ -1,5 +1,5 @@
 //We will make a event listener where it will CALL the FUNCTION "addUpTask" when we click on submit BUTTON
-document.getElementbyID('taskContainer').addEventListener('submit', addUpTask);
+document.getElementById('taskContainer').addEventListener('submit', addUpTask);
 
 //Task manager contains mulitple tasks - hence we need to save it into an array
 let tasksCollection = [];
@@ -29,9 +29,14 @@ function addUpTask(e) {
     //Here we will push the stored object into the array
     tasksCollection.push(plusTask);
     showResults();
+    //after you show the results you want to remove the input given by the user so its easier to input another task ( also not accidently input the same task)
+    clearInput();
 }
 
-
+function clearInput() {
+    //reset into initial values
+    document.getElementById('taskContainer').reset();
+}
 
 function showResults() {
 
@@ -40,6 +45,8 @@ function showResults() {
 
     //We will run through the array and display the tasks stored inside it
     tasksCollection.forEach(task => {
+        //createElement basically in this scenario ~ create a new Element
+        const li = document.createElement('li');
         li.setAttribute('date-id', task.id);
         li.innerHTML = `
         <strong>Description:</strong> ${task.description}<br>

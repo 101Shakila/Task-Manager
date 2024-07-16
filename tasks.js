@@ -4,6 +4,7 @@ document.getElementById('taskContainer').addEventListener('submit', addUpTask);
 //Task manager contains mulitple tasks - hence we need to save it into an array
 let tasksCollection = [];
 
+// Tu bandar
 //Lets create a function where it gathers the users input and pushes it into the tasksCollection array.
 function addUpTask(e) {
     e.preventDefault();  //this will prevent the deafult behavior of form submission ( in this case ) and follow our javascript code instead

@@ -95,3 +95,15 @@ function localStorageGet() {
     const taskStored = localStorage.getItem('tasksCollection');
     return taskStored ? JSON.parse(taskStored) : []; //if there is a task stored we will parse it and return it as an array
 }
+
+//We need a function to initialize the application
+function init() {
+
+    //Here we will retrieve tasks from localStoarge once the page is loaded
+    tasksCollection = localStorageGet();
+    showResults();
+
+}
+
+//call the init function to load the page
+init();

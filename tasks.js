@@ -38,6 +38,7 @@ function clearInput() {
     document.getElementById('taskContainer').reset();
 }
 
+//rendering array!
 function showResults() {
 
     const list = document.getElementById('taskList');
@@ -53,8 +54,9 @@ function showResults() {
         <strong>Assigned:</strong> ${task.assignedTo}<br>
         <strong>Due Date:</strong> ${task.dueDate}<br>
         <strong>Priority:</strong> ${task.priority}<br>
-        <strong>Status:</strong> ${task.status}<br>`;
+        <strong>Status:</strong> ${task.status}<br>
+        <button onclick="editTask('${plusTask.id}')">Edit</button>
+        <button onclick="deleteTask('${plusTask.id}')">Delete</button>`;
         list.appendChild(li); //the newly created li element will be added as a child to the list element
     });
-
 }

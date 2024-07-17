@@ -44,11 +44,13 @@ body
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
+
 .navbar ul li a:hover 
 {
     background-color: #e8dcb6;
     transform: scale(1.1);
 }
+
 
 header 
 {

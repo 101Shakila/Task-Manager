@@ -63,11 +63,22 @@ function showResults(inputSearch = '') {
         });
     }
 
-    //We will run through the array and display the tasks stored inside it
+    // Colours added. (Sarthak)
+    const colors = ['lightblue', 'lightgreen', 'lightcoral', 'lightsalmon', 'lightseagreen'];
+    let index = 0;
+
+    // changed code (sarthak)
     filterTask.forEach(task => {
-        //createElement basically in this scenario ~ create a new Element
         const li = document.createElement('li');
-        li.setAttribute('date-id', task.id);
+        li.setAttribute('data-id', task.id);
+        li.style.backgroundColor = colors[index % colors.length];
+
+        
+        // Not Needed
+        //createElement basically in this scenario ~ create a new Element
+        // const li = document.createElement('li');
+        // li.setAttribute('date-id', task.id);
+
         li.innerHTML = `
         <strong>Description:</strong> ${task.description}<br>
         <strong>Assigned:</strong> ${task.assignedTo}<br>
@@ -77,6 +88,9 @@ function showResults(inputSearch = '') {
         <button class="task-button edit-button" onclick="editTask(${task.id})">Edit</button>
         <button class="task-button edit-button" onclick="deleteTask(${task.id})">Delete</button>`;
         list.appendChild(li); //the newly created li element will be added as a child to the list element
+
+        // added code (sarthak)
+        index++;
     });
 }
 

@@ -9,46 +9,56 @@
 </head>
 
 <body>
+
     <nav class="navbar">
         <ul>
             <li><a href="index.html">Task Manager</a></li>
             <li><a href="team.html">Our Team</a></li>
         </ul>
     </nav>
+    
+    <header>
+        <h1>Task Manager</h1>
+    </header>
+    
+    <main>
+        <form id="taskContainer">
+            <label for="description">Task Description:</label>
+            <input type="text" id="description" required><br>
 
-    <h1>Task Manager</h1>
-    <form id="taskContainer">
-        <label for="description">Task Description:</label>
-        <input type="text" id="description" required><br>
+            <label for="assignedTo">Assigned To:</label>
+            <input type="text" id="assignedTo" required><br>
 
-        <label for="assignedTo">Assigned To:</label>
-        <input type="text" id="assignedTo" required><br>
+            <label for="dueDate">Due Date:</label>
+            <input type="date" id="dueDate" required><br>
 
-        <label for="dueDate">Due Date:</label>
-        <input type="date" id="dueDate" required><br>
+            <label for="priority">Priority:</label>
+            <select id="priority" required>
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+            </select><br>
 
-        <label for="priority">Priority:</label>
-        <select id="priority" required>
-            <option value="Low">Low</option>
-            <option value="Medium">Medium</option>
-            <option value="High">High</option>
-        </select><br>
+            <label for="status">Status:</label>
+            <select id="status" required>
+                <option value="Pending">Pending</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Completed">Completed</option>
+            </select><br>
 
-        <label for="status">Status:</label>
-        <select id="status" required>
-            <option value="Pending">Pending</option>
-            <option value="In Progress">In Progress</option>
-            <option value="Completed">Completed</option>
-        </select><br>
+            <button type="submit">Add Task</button>
+        </form>
 
-        <button type="submit">Add Task</button>
-    </form>
+        <label for="searchInput">Search Tasks:</label>
+        <input type="text" id="searchInput" placeholder="Enter search text">
 
-    <label for="searchInput">Search Tasks:</label>
-    <input type="text" id="searchInput" placeholder="Enter search text">
+        <h2>Task List</h2>
+        <ul id="taskList"></ul>
+    </main>
 
-    <h2>Task List</h2>
-    <ul id="taskList"></ul>
+    <footer>
+        <p>&copy; Copyright Group 1 - Task Manager</p>
+    </footer>
 
     <script src="JS/tasks.js"></script>
 </body>

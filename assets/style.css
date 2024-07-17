@@ -1,22 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
+    background-color: #f0f0f0;
 }
 
-form {
-    margin-bottom: 20px;
+
+.navbar {
+    background-color: #333;
+    overflow: hidden;
 }
 
-label {
-    display: inline-block;
-    width: 100px;
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex; 
+    justify-content: center; 
 }
 
-input,
-select {
-    margin-bottom: 10px;
+.navbar ul li {
+    margin-right: 10px; 
 }
 
-button {
-    margin-top: 10px;
+.navbar ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: background-color 0.3s ease; 
+}
+
+.navbar ul li a:hover {
+    background-color: #555;
 }

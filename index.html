@@ -1,28 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Giving our main page a title. -->
     <title>Task Manager Application</title>
+    <!-- Linking CSS which is under the assets folder. -->
     <link rel="stylesheet" href="assets/style.css">
 </head>
-
 <body>
-
+    <!-- Creating a class named navbar in the nav semantic tag. -->
     <nav class="navbar">
         <ul>
+            <!-- Putting our pages in the navigation bar. -->
             <li><a href="index.html">Task Manager</a></li>
             <li><a href="team.html">Our Team</a></li>
         </ul>
     </nav>
 
+    <!-- Created a header as a headline. -->
     <header>
         <h1>Task Manager</h1>
     </header>
 
+    <!-- Starting the main body which consists of the main functionality. -->
     <main>
+        <!-- Creating a form with an id (#taskContainer) -->
         <form id="taskContainer">
+            <!-- Creating lables as well as input tpe's as er the requirement. -->
             <label for="description">Task Description:</label>
             <input type="text" id="description" required><br>
 
@@ -46,11 +51,15 @@
                 <option value="Completed">Completed</option>
             </select><br>
 
+            <!-- Creating a button to submit. -->
             <button type="submit">Add Task</button>
         </form>
 
+        <!-- Creating a different div to see all the tasks that the user will put. -->
         <div id="taskListContainer">
             <label for="searchInput">Search Tasks:</label>
+
+            <!-- Creating a searchbar so that if there are multiple tasks then user can type in and search for it. -->
             <input type="text" id="searchInput" placeholder="Enter search text">
 
             <h2>Task List</h2>
@@ -58,10 +67,12 @@
         </div>
     </main>
 
+    <!-- Creating a footer -->
     <footer>
         <p>&copy; This Project is Developed by Group-1</p>
     </footer>
 
+    <!-- Linking the JS file. -->
     <script src="JS/tasks.js"></script>
 </body>
 

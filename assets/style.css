@@ -2,19 +2,22 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: system-ui, sans-serif;
 }
 
 body 
 {
-    font-family: system-ui, sans-serif;
     background-color: #fdedba;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
-
 
 .navbar 
 {
-    background-color: #fbf2d5; ;
+    background-color: #fbf2d5;
     overflow: hidden;
+    font-weight: 600;
 }
 
 .navbar ul 
@@ -22,20 +25,19 @@ body
     list-style-type: none;
     margin: 0;
     padding: 0;
-    display: flex; 
-    justify-content: center; 
+    display: flex;
+    justify-content: center;
 }
 
 .navbar ul li 
 {
-    margin-right: 10px; 
+    margin-right: 10px;
 }
 
 .navbar ul li a 
 {
     display: block;
     color: rgb(0, 0, 0);
-    font-weight: 600;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -48,15 +50,205 @@ body
     transform: scale(1.1);
 }
 
+header 
+{
+    color: #000000;
+    text-align: center;
+    padding: 1rem 0;
+    opacity: 0; 
+    animation: fadeIn 2s forwards;
+}
 
-@media screen and (max-width: 768px) {
+@keyframes fadeIn 
+{
+    to 
+    {
+        opacity: 1;
+    }
+}
+
+main 
+{
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    padding: 20px;
+    background: linear-gradient(to right, #e2c772, #ffffff);    box-shadow: 0 0 10px rgba(221, 210, 210, 0.1);
+    border-radius: 5px;
+    margin-left: auto;
+    font-weight: 600;
+    margin-right: auto;
+    width: 100%; 
+    box-sizing: border-box; 
+    margin-bottom: 30px;
+}
+
+form 
+{
+    flex: 1;
+    margin-right: 20px;
+}
+
+form label 
+{
+    display: block;
+    margin-bottom: 8px;
+}
+
+form input, form select 
+{
+    width: calc(100% - 20px);
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s ease; 
+}
+
+form input:focus, form select:focus
+{
+    border-color: #5a6268; 
+}
+
+form button 
+{
+    background-color: #fbf2d5;
+    color: #000000;
+    padding: 10px 20px;
+    border: none;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+}
+
+form button:hover 
+{
+    background-color: #e8dcb6;
+}
+
+h2 {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 20px; 
+    color: #333; 
+}
+
+#searchInput 
+{
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+#taskListContainer 
+{
+    flex: 1;
+    padding: 20px;
+    margin: 0 auto 30px;
+    max-width: 800px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+#taskList 
+{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#taskList li 
+{
+    background-color: #f9f9f9;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#taskList li:last-child 
+{
+    margin-bottom: 0;
+}
+
+.task-button 
+{
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.edit-button 
+{
+    background-color: #fbf2d5;
+    color: rgb(0, 0, 0);
+}
+
+.delete-button 
+{
+    background-color: #fbf2d5;
+    color: rgb(0, 0, 0);
+}
+
+.task-button:hover 
+{
+    opacity: 0.8;
+    background-color: #e8dcb6;
+}
+
+footer 
+{
+    text-align: center;
+    background-color: #fbf2d5;
+    color: #000000;
+    padding: 10px 0;
+    font-weight: 600;
+    width: 100%;
+    position: relative;
+    transition: background-color 0.3s ease, color 0.3s ease; 
+}
+
+footer:hover 
+{
+    background-color: #e8dcb6; 
+    color: #333; 
+}
+
+@media screen and (max-width: 768px) 
+{
     .navbar ul 
     {
-        flex-direction: column; 
+        flex-direction: column;
     }
 
     .navbar ul li 
     {
-        margin-bottom: 10px; 
+        margin-bottom: 10px;
+    }
+
+    main 
+    {
+        flex-direction: column;
+    }
+
+    form 
+    {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    #taskListContainer 
+    {
+        padding: 20px; 
     }
 }

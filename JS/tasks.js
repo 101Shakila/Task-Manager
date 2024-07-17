@@ -74,8 +74,8 @@ function showResults(inputSearch = '') {
         <strong>Due Date:</strong> ${task.dueDate}<br>
         <strong>Priority:</strong> ${task.priority}<br>
         <strong>Status:</strong> ${task.status}<br>
-        <button onclick="editTask(${task.id})">Edit</button>
-            <button onclick="deleteTask(${task.id})">Delete</button>`;
+        <button class="task-button edit-button" onclick="editTask(${task.id})">Edit</button>
+        <button class="task-button edit-button" onclick="deleteTask(${task.id})">Delete</button>`;
         list.appendChild(li); //the newly created li element will be added as a child to the list element
     });
 }
@@ -119,10 +119,6 @@ function handleInput(event) {
     const inputSearch = event.target.value.trim();
     showResults(inputSearch); //this will render the tasks based on what the user has inputted
 }
-
-
-
-
 
 //We need a function to initialize the application
 function init() {

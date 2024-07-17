@@ -63,21 +63,17 @@ function showResults(inputSearch = '') {
         });
     }
 
-    // Colours added. (Sarthak)
+    // Adding different colours as per the instructions.
     const colors = ['lightblue', 'lightgreen', 'lightcoral', 'lightsalmon', 'lightseagreen'];
+    // Making sure it starts from the index which is 0 in the array.
     let index = 0;
 
-    // changed code (sarthak)
+    // Creating a for loop for every task that is supposed to be displayed
     filterTask.forEach(task => {
         const li = document.createElement('li');
         li.setAttribute('data-id', task.id);
+        // The backgroundColour property will be applied to the task and will start from index which is (0) and will go upto the length of the colours array. 
         li.style.backgroundColor = colors[index % colors.length];
-
-        
-        // Not Needed
-        //createElement basically in this scenario ~ create a new Element
-        // const li = document.createElement('li');
-        // li.setAttribute('date-id', task.id);
 
         li.innerHTML = `
         <strong>Description:</strong> ${task.description}<br>
@@ -89,7 +85,7 @@ function showResults(inputSearch = '') {
         <button class="task-button edit-button" onclick="deleteTask(${task.id})">Delete</button>`;
         list.appendChild(li); //the newly created li element will be added as a child to the list element
 
-        // added code (sarthak)
+        // The array will keep iterating everytime user enters a new task.
         index++;
     });
 }

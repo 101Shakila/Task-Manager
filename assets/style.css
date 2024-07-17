@@ -4,18 +4,21 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: Arial, sans-serif;
+body 
+{
+    font-family: system-ui, sans-serif;
     background-color: #f0f0f0;
 }
 
 
-.navbar {
-    background-color: #333;
+.navbar 
+{
+    background-color: #fbf2d5; ;
     overflow: hidden;
 }
 
-.navbar ul {
+.navbar ul 
+{
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -23,19 +26,36 @@ body {
     justify-content: center; 
 }
 
-.navbar ul li {
+.navbar ul li 
+{
     margin-right: 10px; 
 }
 
-.navbar ul li a {
+.navbar ul li a 
+{
     display: block;
-    color: white;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
     transition: background-color 0.3s ease; 
 }
 
-.navbar ul li a:hover {
+.navbar ul li a:hover 
+{
     background-color: #555;
+}
+
+
+@media screen and (max-width: 768px) {
+    .navbar ul 
+    {
+        flex-direction: column; 
+    }
+
+    .navbar ul li 
+    {
+        margin-bottom: 10px; 
+    }
 }

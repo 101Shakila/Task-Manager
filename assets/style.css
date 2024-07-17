@@ -7,7 +7,7 @@
 body 
 {
     font-family: system-ui, sans-serif;
-    background-color: #f0f0f0;
+    background-color: #fbf2d5;
 }
 
 
@@ -39,12 +39,13 @@ body
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    transition: background-color 0.3s ease; 
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .navbar ul li a:hover 
 {
-    background-color: #555;
+    background-color: #e8dcb6;
+    transform: scale(1.1);
 }
 
 

@@ -2,6 +2,7 @@ document.getElementById('taskContainer').addEventListener('submit', addUpTask);
 
 let tasksCollection = [];
 
+//this is how the server.js and tasks.js are connected 
 async function fetchTasks() {
     const response = await fetch('/tasks');
     const tasks = await response.json();

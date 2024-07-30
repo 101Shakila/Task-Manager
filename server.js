@@ -54,7 +54,7 @@ app.put('/tasks/:id', (req, res) => {
     const tasks = readTasks();
     const taskIndex = tasks.findIndex(t => t.id === parseInt(req.params.id));
     if (taskIndex !== -1) { //checks if task exists
-        tasks[taskIndex] = { ...tasks[taskIndex], ...req.body };
+        tasks[taskIndex] = { ...tasks[taskIndex], ...req.body }; //creates shallow copy of current task object
         writeTasks(tasks);
         res.json(tasks[taskIndex]);
     } else {

@@ -16,17 +16,17 @@ const readTasks = () => {
 
 // Function to write tasks to the JSON file
 const writeTasks = (tasks) => {
-    fs.writeFileSync(tasksFilePath, JSON.stringify(tasks, null, 2));
+    fs.writeFileSync(tasksFilePath, JSON.stringify(tasks, null, 2)); //JSON.stringify converst tasks into JSON String format.
 };
 
 // Read all tasks
-app.get('/api/tasks', (req, res) => {
+app.get('/tasks', (req, res) => {
     const tasks = readTasks();
     res.json(tasks);
 });
 
 // Read a single task by id
-app.get('/api/tasks/:id', (req, res) => {
+app.get('/tasks/:id', (req, res) => {
     const tasks = readTasks();
     const task = tasks.find(t => t.id === parseInt(req.params.id));
     if (task) {
@@ -37,7 +37,7 @@ app.get('/api/tasks/:id', (req, res) => {
 });
 
 // Create a new task
-app.post('/api/tasks', (req, res) => {
+app.post('/tasks', (req, res) => {
     const tasks = readTasks();
     const newTask = {
         id: Date.now(),
@@ -49,7 +49,7 @@ app.post('/api/tasks', (req, res) => {
 });
 
 // Update a task by id
-app.put('/api/tasks/:id', (req, res) => {
+app.put('/tasks/:id', (req, res) => {
     const tasks = readTasks();
     const taskIndex = tasks.findIndex(t => t.id === parseInt(req.params.id));
     if (taskIndex !== -1) {
@@ -62,7 +62,7 @@ app.put('/api/tasks/:id', (req, res) => {
 });
 
 // Delete a task by id
-app.delete('/api/tasks/:id', (req, res) => {
+app.delete('/tasks/:id', (req, res) => {
     let tasks = readTasks();
     const taskIndex = tasks.findIndex(t => t.id === parseInt(req.params.id));
     if (taskIndex !== -1) {

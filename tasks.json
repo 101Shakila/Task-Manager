@@ -22,5 +22,13 @@
     "dueDate": "2024-07-31",
     "priority": "Medium",
     "status": "Completed"
+  },
+  {
+    "id": 1722303233024,
+    "description": "Taking a sip",
+    "assignedTo": "Abhishek",
+    "dueDate": "2024-07-31",
+    "priority": "Medium",
+    "status": "Pending"
   }
 ]

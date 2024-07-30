@@ -25,12 +25,13 @@ app.get('/tasks', (req, res) => {
     res.json(tasks); //sends JSON response back to client
 });
 
-// Read a single task by id
+// Read a single task by id - which is generated automatically
 app.get('/tasks/:id', (req, res) => {
     const tasks = readTasks();
-    const task = tasks.find(t => t.id === parseInt(req.params.id));
+    //iterate over tasks array
+    const task = tasks.find(t => t.id === parseInt(req.params.id)); //use parseInt since its from String to Integer to MATCH
     if (task) {
-        res.json(task);
+        res.json(task); //IF Found - it sends task object to client
     } else {
         res.status(404).json({ message: 'Task not found' });
     }
@@ -52,7 +53,7 @@ app.post('/tasks', (req, res) => {
 app.put('/tasks/:id', (req, res) => {
     const tasks = readTasks();
     const taskIndex = tasks.findIndex(t => t.id === parseInt(req.params.id));
-    if (taskIndex !== -1) {
+    if (taskIndex !== -1) { //checks if task exists
         tasks[taskIndex] = { ...tasks[taskIndex], ...req.body };
         writeTasks(tasks);
         res.json(tasks[taskIndex]);
@@ -64,8 +65,6 @@ app.put('/tasks/:id', (req, res) => {
 // Delete a task by id
 app.delete('/tasks/:id', (req, res) => {
     let tasks = readTasks();
-    console.log("okay so im here deleting");
-    console.log(tasks);
     const taskIndex = tasks.findIndex(t => t.id === parseInt(req.params.id));
     if (taskIndex !== -1) {
         tasks = tasks.filter(t => t.id !== parseInt(req.params.id));

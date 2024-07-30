@@ -2,15 +2,15 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 const tasksFilePath = './tasks.json';
 
-app.use(bodyParser.json());
+app.use(bodyParser.json()); //Parse incoming request bodies as JSON - Middleware functions ( helps with handling JSON Data )
 app.use(express.static('public')); // Serve static files from the "public" directory
 
-// Function to read tasks from the JSON file
+//function to read data from JSON file and return JS OBJECT / ARRAY.
 const readTasks = () => {
-    const data = fs.readFileSync(tasksFilePath, 'utf-8');
+    const data = fs.readFileSync(tasksFilePath, 'utf-8');  //Reads it synchronously.
     return JSON.parse(data || '[]');
 };
 

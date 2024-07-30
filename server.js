@@ -22,7 +22,7 @@ const writeTasks = (tasks) => {
 // Read all tasks
 app.get('/tasks', (req, res) => {
     const tasks = readTasks();
-    res.json(tasks);
+    res.json(tasks); //sends JSON response back to client
 });
 
 // Read a single task by id
@@ -64,6 +64,8 @@ app.put('/tasks/:id', (req, res) => {
 // Delete a task by id
 app.delete('/tasks/:id', (req, res) => {
     let tasks = readTasks();
+    console.log("okay so im here deleting");
+    console.log(tasks);
     const taskIndex = tasks.findIndex(t => t.id === parseInt(req.params.id));
     if (taskIndex !== -1) {
         tasks = tasks.filter(t => t.id !== parseInt(req.params.id));

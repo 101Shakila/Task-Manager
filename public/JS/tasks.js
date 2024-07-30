@@ -3,7 +3,7 @@ document.getElementById('taskContainer').addEventListener('submit', addUpTask);
 let tasksCollection = [];
 
 async function fetchTasks() {
-    const response = await fetch('/api/tasks');
+    const response = await fetch('/tasks');
     const tasks = await response.json();
     return tasks;
 }
@@ -25,14 +25,14 @@ async function addUpTask(e) {
         status: status
     };
 
-    const response = await fetch('/api/tasks', {
+    const response = await fetch('/tasks', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(newTask)
     });
-    
+
     if (response.ok) {
         const addedTask = await response.json();
         tasksCollection.push(addedTask);
@@ -89,7 +89,7 @@ async function showResults(inputSearch = '') {
 }
 
 async function deleteTask(id) {
-    const response = await fetch(`/api/tasks/${id}`, { method: 'DELETE' });
+    const response = await fetch(`/tasks/${id}`, { method: 'DELETE' });
     if (response.ok) {
         tasksCollection = tasksCollection.filter(task => task.id !== id);
         showResults();

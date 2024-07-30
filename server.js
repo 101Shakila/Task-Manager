@@ -10,8 +10,8 @@ app.use(express.static('public')); // Serve static files from the "public" direc
 
 //function to read data from JSON file and return JS OBJECT / ARRAY.
 const readTasks = () => {
-    const data = fs.readFileSync(tasksFilePath, 'utf-8');  //Reads it synchronously.
-    return JSON.parse(data || '[]');
+    const data = fs.readFileSync(tasksFilePath, 'utf-8');  //Reads it synchronously. Reads in utf-8 FORMAT.
+    return JSON.parse(data || '[]'); //It will convert string data into JS Object - if empty it will give [];
 };
 
 // Function to write tasks to the JSON file
